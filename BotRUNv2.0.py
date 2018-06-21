@@ -20,7 +20,7 @@ async def on_error(message, event, *args, **kwargs):
 @bot.listen()
 async def on_ready():
           print('Logging in as', bot.user.name)
-          await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='e?help'))
+          await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='u?help'))
                   
 
 @commands.cooldown(1, 5, commands.BucketType.user)  
@@ -62,7 +62,7 @@ async def help2(ctx):
 @bot.listen()
 async def on_message(message : discord.Message):
     if bot.user.mentioned_in(message):
-        await message.channel.send(':sleeping: | You woke me up :( . My prefix is `e?` , for a list of commands type `e?help`', delete_after=10)
+        await message.channel.send(':sleeping: | You woke me up :( . My prefix is `e?` , for a list of commands type `u?help`', delete_after=10)
 
 @bot.listen()
 async def on_command_error(ctx, error):
@@ -149,14 +149,14 @@ async def avatar(ctx, member: discord.Member=None):
 
 @bot.listen()
 async def on_message(message):
-    if message.content.lower() == 'e?support' and message.author != bot.user:
-        await message.channel.send('The support server is: https://discord.gg/GF3RWsd')
+    if message.content.lower() == 'u?support' and message.author != bot.user:
+        await message.channel.send('The support server is: https://discord.gg/qaTEp56')
 
 @commands.cooldown(1, 5, commands.BucketType.user)
 @bot.command()
 async def invite(ctx):
     """Gives you the BOT invite link."""
-    await ctx.send("Invite the BOT here: https://discordapp.com/api/oauth2/authorize?client_id=459000712538357760&permissions=0&scope=bot")
+    await ctx.send("Invite the BOT here: https://discordapp.com/api/oauth2/authorize?client_id=459417838394933258&permissions=0&scope=bot")
 
 @commands.cooldown(1, 5, commands.BucketType.user)
 @bot.command()
