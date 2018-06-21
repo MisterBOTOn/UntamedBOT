@@ -284,4 +284,34 @@ async def binfo(ctx):
     em.set_thumbnail(url=ctx.me.avatar_url)
     msg = await ctx.send(embed=em)
 
+client.on('guildMemberAdd', member => {
+    var joinrole = member.guild.roles.find('name', '[💪] 𝓣𝓪𝓶𝓮𝓭');
+    member.addRole(joinrole);
+    let channel  = member.guild.channels.find('name', '😏welcome-bye😥');
+    let memberavatar  = member.user.avatarURL
+        if (!channel) return;
+        let embed = new Discord.RichEmbed()
+        .setColor('#FF000')
+        .setThumbnail(memberavatar)
+        .addField('? | Name: ', `${member}`)
+        .addField('? | Welcome', `Bine ai venit in comunitatea noastra`)
+        .setTimestamp()
+
+        channel.sendEmbed(embed);
+});
+
+client.on('guildMemberRemove', member => {
+    let channel = member.guild.channels.find('name', '😏welcome-bye😥');
+    let memberavatar = member.user.avatarURL
+        if (!channel) return;
+        let embed = new Discord.RichEmbed()
+        .setColor('#ff0000')
+        .setThumbnail(memberavatar)
+        .addField('? | Name: ', `${member}`)
+        .addField('? | Bye -', `La revedere , ne  vom revedea`)
+        .setTimestamp()
+
+        channel.sendEmbed(embed);
+});
+
 bot.run(os.getenv("TOKEN"))
