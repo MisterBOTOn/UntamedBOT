@@ -8,7 +8,7 @@ import os
 
 
 logging.basicConfig(level='INFO')
-bot = commands.Bot(command_prefix='u?')
+bot = commands.Bot(command_prefix='*')
 bot.remove_command('help')
 
     
@@ -20,7 +20,7 @@ async def on_error(message, event, *args, **kwargs):
 @bot.listen()
 async def on_ready():
           print('Logging in as', bot.user.name)
-          await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='u?help'))
+          await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='*help'))
                   
 
 @commands.cooldown(1, 5, commands.BucketType.user)  
@@ -61,7 +61,7 @@ async def help2(ctx):
 @bot.listen()
 async def on_message(message : discord.Message):
     if bot.user.mentioned_in(message):
-        await message.channel.send(':sleeping: | You woke me up :( . My prefix is `u?` , for a list of commands type `u?help`', delete_after=10)
+        await message.channel.send(':sleeping: | You woke me up :( . My prefix is `*` , for a list of commands type `*help`', delete_after=10)
 
 @bot.listen()
 async def on_command_error(ctx, error):
