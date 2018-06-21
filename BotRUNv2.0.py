@@ -54,7 +54,6 @@ async def help2(ctx):
 [NOTE: |binfo works too]""", inline=False)
     em.add_field(name="**lenny**", value='Just a lenny face', inline=False)
     em.add_field(name="**respect**", value='Pay #respect', inline=False)
-    em.add_field(name="**support**", value='Returns the support server', inline=False)
     em.set_thumbnail(url=ctx.me.avatar_url)
     msg = await ctx.send(embed=em)
   
@@ -147,10 +146,7 @@ async def avatar(ctx, member: discord.Member=None):
 
 
 
-@bot.listen()
-async def on_message(message):
-    if message.content.lower() == 'u?support' and message.author != bot.user:
-        await message.channel.send('The support server is: https://discord.gg/qaTEp56')
+
 
 @commands.cooldown(1, 5, commands.BucketType.user)
 @bot.command()
@@ -168,7 +164,7 @@ async def support(ctx):
 @bot.command()
 async def lenny(ctx):
     """Get the lenny face"""
-    await ctx.send("( ͡° ͜ʖ ͡° )")
+    await ctx.send("( ?° ?? ?° )")
 
 @commands.cooldown(1, 5, commands.BucketType.user)
 @bot.command()
@@ -265,7 +261,21 @@ async def pinfo(ctx, member: discord.Member=None):
 
 
 
-
+@commands.cooldown(1, 5, commands.BucketType.user)  
+@bot.command()
+async def botinfo(ctx):
+    """Get the BOT info"""
+    em = discord.Embed(title="".format(ctx.guild.name), description="", color=discord.Colour.blue())
+    em.set_author(name="BOT Info")
+    em.add_field(name="Name", value=ctx.bot.user.name, inline=True)
+    em.add_field(name="ID", value=ctx.bot.user.id, inline=True)
+    em.add_field(name="Prefix", value=ctx.bot.command_prefix, inline=True)
+    em.add_field(name="Made with", value='Python 3.6.5', inline=True)
+    em.add_field(name="Tag:", value=ctx.me.discriminator, inline=True)
+    em.add_field(name="Creator", value='<@320887181516210177>', inline=True)
+    em.add_field(name="Created at", value=ctx.bot.user.created_at, inline=True)
+    em.set_thumbnail(url=ctx.me.avatar_url)
+    msg = await ctx.send(embed=em)
 
 
 
@@ -287,4 +297,3 @@ async def binfo(ctx):
     msg = await ctx.send(embed=em)
 
 bot.run(os.getenv("TOKEN"))
-                           
