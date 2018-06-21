@@ -156,15 +156,9 @@ async def invite(ctx):
 
 @commands.cooldown(1, 5, commands.BucketType.user)
 @bot.command()
-async def support(ctx):
-    """Get the lenny face"""
-    await ctx.send("")
-
-@commands.cooldown(1, 5, commands.BucketType.user)
-@bot.command()
 async def lenny(ctx):
     """Get the lenny face"""
-    await ctx.send("( ?° ?? ?° )")
+    await ctx.send("( ͡° ͜ʖ ͡° )")
 
 @commands.cooldown(1, 5, commands.BucketType.user)
 @bot.command()
@@ -234,9 +228,7 @@ async def playerinfo(ctx, member: discord.Member=None):
     em.add_field(name="Joined", value=member.joined_at)
     em.set_thumbnail(url=member.avatar_url)
     msg = await ctx.send(embed=em)
-    await msg.add_reaction('\N{THUMBS UP SIGN}')
-    await msg.add_reaction('\N{SHRUG}')
-    await msg.add_reaction('\N{THUMBS DOWN SIGN}')
+
 
 @commands.cooldown(1, 5, commands.BucketType.user)
 @bot.command()
@@ -255,11 +247,7 @@ async def pinfo(ctx, member: discord.Member=None):
     em.add_field(name="Joined", value=member.joined_at)
     em.set_thumbnail(url=member.avatar_url)
     msg = await ctx.send(embed=em)
-    await msg.add_reaction('\N{THUMBS UP SIGN}')
-    await msg.add_reaction('\N{SHRUG}')
-    await msg.add_reaction('\N{THUMBS DOWN SIGN}')
-
-
+    
 
 @commands.cooldown(1, 5, commands.BucketType.user)  
 @bot.command()
@@ -272,7 +260,7 @@ async def botinfo(ctx):
     em.add_field(name="Prefix", value=ctx.bot.command_prefix, inline=True)
     em.add_field(name="Made with", value='Python 3.6.5', inline=True)
     em.add_field(name="Tag:", value=ctx.me.discriminator, inline=True)
-    em.add_field(name="Creator", value='<@320887181516210177>', inline=True)
+    em.add_field(name="Creator", value='<@4514080522609623047>', inline=True)
     em.add_field(name="Created at", value=ctx.bot.user.created_at, inline=True)
     em.set_thumbnail(url=ctx.me.avatar_url)
     msg = await ctx.send(embed=em)
@@ -291,7 +279,7 @@ async def binfo(ctx):
     em.add_field(name="Prefix", value=ctx.bot.command_prefix, inline=True)
     em.add_field(name="Made with", value='Python 3.6.5', inline=True)
     em.add_field(name="Tag:", value=ctx.me.discriminator, inline=True)
-    em.add_field(name="Creator", value='<@320887181516210177>', inline=True)
+    em.add_field(name="Creator", value='<@451408052260962304>', inline=True)
     em.add_field(name="Created at", value=ctx.bot.user.created_at, inline=True)
     em.set_thumbnail(url=ctx.me.avatar_url)
     msg = await ctx.send(embed=em)
